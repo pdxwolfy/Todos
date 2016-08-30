@@ -1,0 +1,45 @@
+<% list_id   = params[:id] %>
+<% list      = todo_list list_id %>
+<% list_name = list[:name] %>
+
+<section id="todos">
+
+  <header>
+
+    <h2><%= @message.ui :editing_list, name: list_name %></h2>
+
+    <ul>
+      <li>
+        <form class="delete" action="<%= Route.delete_todo_list list_id %>"
+              method="post">
+          <button type="submit" class="delete">
+            <%= @message.ui :delete_list %>
+          </button>
+        </form>
+      </li>
+    </ul>
+
+  </header>
+
+</section>
+
+<form action="<%= Route.update_list_name list_id %>" method="post" id="edit">
+
+  <dl>
+    <dt>
+      <label for="list_name"><%= @message.ui :enter_new_list_name %></label>
+    </dt>
+    <dd>
+      <input name="list_name" placeholder="<%= @message.ui :list_name %>"
+             type="text" value="<%= list_name %>">
+    </dd>
+  </dl>
+
+  <fieldset class="actions">
+    <input type="submit" value="<%= @message.ui :save %>">
+    <a class="cancel" href="<%= Route.view_list list_id %>">
+      <%= @message.ui :cancel %>
+    </a>
+  </fieldset>
+
+</form>

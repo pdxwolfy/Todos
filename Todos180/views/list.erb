@@ -1,0 +1,71 @@
+<% list_id   = params[:id] %>
+<% list      = todo_list list_id %>
+<% list_name = list[:name] %>
+<% todos     = todo_items list_id %>
+
+<% content_for :header_links do %>
+  <a class="list" href="<%= Route.all_lists %>">
+    <%= @message.ui :all_lists %>
+  </a>
+<% end %>
+
+<section id="todos" class="<%= list_completion_class list %> todo-list">
+
+  <header>
+    <h2><%= list_name %></h2>
+    <ul>
+      <% unless list_complete? list %>
+        <li>
+          <form action="<%= Route.complete_all_todos list_id %>" method="post"
+                id="complete-all">
+            <button class="check" type="submit">
+              <%= @message.ui :complete_all %>
+            </button>
+          </form>
+        </li>
+      <% end %>
+      <li>
+        <a class="edit" href="<%= Route.edit_todo_list list_id %>">
+          <%= @message.ui :edit_list %>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <ul>
+    <% todos.each do |todo| %>
+      <li class="<%= todo_completion_class todo %> todo">
+        <% todo_id, todo_completed = todo.values_at :id, :completed %>
+        <form action="<%= Route.complete_todo list_id, todo_id %>"
+              method="post" class="check mark-todo">
+          <input type="hidden" name="completed" value="<%= !todo_completed %>">
+          <button type="submit"><%= @message.ui :complete %></button>
+        </form>
+        <h3><%= todo[:name] %></h3>
+        <form action="<%= Route.delete_todo_item list_id, todo_id %>"
+              method="post" class="delete delete-todo">
+          <button type="submit" class="delete">
+            <%= @message.ui :delete %>
+          </button>
+        </form>
+      </li>
+    <% end %>
+  </ul>
+
+</section>
+
+<form action="<%= Route.add_todo list_id %>" method="post" id="new-todo">
+  <dl>
+    <dt>
+      <label for="todo"><%= @message.ui :enter_todo_name %></label>
+    </dt>
+    <dd>
+      <input name="todo" placeholder="<%= @message.ui :something_todo %>"
+             type="text" value="<%= params[:todo] %>">
+    </dd>
+  </dl>
+
+  <fieldset class="actions">
+    <input type="submit" value="<%= @message.ui :add %>">
+  </fieldset>
+</form>

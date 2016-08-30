@@ -1,0 +1,20 @@
+<form action="<%= Route.create_todo_list %>" method="post">
+
+  <dl>
+    <dt>
+      <label for="list_name"><%= @message.ui :enter_list_name %></label>
+    </dt>
+    <dd>
+      <input name="list_name" placeholder="<%= @message.ui :list_name %>"
+             type="text" value="<%= @list_name %>">
+    </dd>
+  </dl>
+
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="<%= Route.all_lists %>" class="cancel">
+      <%= @message.ui :cancel %>
+    </a>
+  </fieldset>
+
+</form>
