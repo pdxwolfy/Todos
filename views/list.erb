@@ -10,7 +10,6 @@
 <% end %>
 
 <section id="todos" class="<%= list_completion_class list %> todo-list">
-
   <header>
     <h2><%= list_name %></h2>
     <ul>
@@ -51,7 +50,6 @@
       </li>
     <% end %>
   </ul>
-
 </section>
 
 <form action="<%= Route.add_todo list_id %>" method="post" id="new-todo">

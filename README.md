@@ -1,1 +1,1 @@
-Todos application for LS course 180
+Todos Assignment for 180

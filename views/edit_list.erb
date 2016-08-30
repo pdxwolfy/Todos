@@ -3,7 +3,6 @@
 <% list_name = list[:name] %>
 
 <section id="todos">
-
   <header>
 
     <h2><%= @message.ui :editing_list, name: list_name %></h2>
@@ -20,11 +19,9 @@
     </ul>
 
   </header>
-
 </section>
 
 <form action="<%= Route.update_list_name list_id %>" method="post" id="edit">
-
   <dl>
     <dt>
       <label for="list_name"><%= @message.ui :enter_new_list_name %></label>
@@ -41,5 +38,4 @@
       <%= @message.ui :cancel %>
     </a>
   </fieldset>
-
 </form>

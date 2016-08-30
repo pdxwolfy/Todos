@@ -5,7 +5,6 @@
 <% end %>
 
 <ul id="lists">
-
   <% all_lists.each do |list| %>
     <li class="<%= list_completion_class list %> todo-list">
       <a href="<%= Route.view_list list[:id] %>">
@@ -14,5 +13,4 @@
       </a>
     </li>
   <% end %>
-
 </ul>
