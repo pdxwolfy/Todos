@@ -1,0 +1,37 @@
+{
+  "name": "todos-heroku-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todos.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng1235/todos-heroku-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ng1235/todos-heroku-v2/issues"
+  },
+  "homepage": "https://github.com/ng1235/todos-heroku-v2#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-loki": "^1.1.0",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.2.0",
+    "morgan": "^1.9.1",
+    "pg": "^8.7.1",
+    "pug": "^2.0.4"
+  }
+}
